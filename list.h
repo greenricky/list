@@ -17,3 +17,5 @@ LIST *reverse_list(LIST *head);
 
 typedef bool (* DEL_CHK)(LIST *node);
 void list_delete_node(LIST **head, DEL_CHK fun);
+
+LIST *merge_2_sorted_list(LIST *l1, LIST *l2);

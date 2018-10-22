@@ -102,4 +102,30 @@ void list_delete_node(LIST **head, DEL_CHK fun)
 	}
 }
 
+LIST *merge_2_sorted_list(LIST *l1, LIST *l2)
+{
+	if(NULL == l1)
+		return l2;
+	if(NULL == l2)
+		return l1;
+
+	LIST *p_merged = NULL;
+	if(l1->d < l2->d)
+    {
+		p_merged = l1;
+		p_merged->next = merge_2_sorted_list(l1->next, l2);
+	}
+	else
+	{	
+		p_merged = l2;
+		p_merged->next = merge_2_sorted_list(l1, l2->next);
+	}
+
+	return p_merged;
+}
+
+
+
+
+
 
