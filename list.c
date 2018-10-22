@@ -66,4 +66,26 @@ void list_print(LIST *l1)
 }
 
 
+LIST *reverse_list(LIST *head)
+{
+	LIST *pre = NULL;
+	LIST *cur = head;
+	LIST *next = NULL;
+	if(NULL == head)
+		return NULL;
+	
+	while(NULL != cur)
+	{
+		next = cur->next;
+		cur->next = pre;
+		
+		pre = cur;	
+		cur = next;
+	}		
+
+	return pre;
+}
+
+
+
 
