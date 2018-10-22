@@ -86,6 +86,20 @@ LIST *reverse_list(LIST *head)
 	return pre;
 }
 
-
+void list_delete_node(LIST **head, DEL_CHK fun)
+{
+	LIST **cur = head;
+	while(NULL != *cur)
+	{
+		LIST *entry = *cur;
+		if( fun(entry) )
+		{
+			*cur = entry->next;
+			free(entry);
+		}
+		else
+			cur = &(entry->next);
+	}
+}
 
 
